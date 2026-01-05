@@ -185,13 +185,13 @@ export default function App() {
           </div>
         </div>
         <div className="actions">
-          <a className="btn" href="https://github.com/TU_USUARIO" target="_blank" rel="noreferrer">
+          <a className="btn" href="https://github.com/Esteebaan23" target="_blank" rel="noreferrer">
             GitHub
           </a>
-          <a className="btn" href="https://www.linkedin.com/in/TU_USUARIO" target="_blank" rel="noreferrer">
+          <a className="btn" href="https://www.linkedin.com/in/harold-lucero-nieto-a70275259/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a className="btn" href="mailto:you@email.com">
+          <a className="btn" href="mailto:esteebaan.lucero.23@gmail.com">
             Email
           </a>
         </div>
