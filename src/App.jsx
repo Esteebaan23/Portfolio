@@ -1,4 +1,4 @@
-import ragImg from "./assets/rag.jpg"
+import ragImg from "./assets/RAG.jpg"
 import organoidsImg from "./assets/organoids.png"
 import smallObjectsImg from "./assets/small-objects.png"
 import robotYoloImg from "./assets/robot-yolo.png"
