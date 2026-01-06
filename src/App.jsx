@@ -188,11 +188,17 @@ export default function App() {
           <a className="btn" href="https://github.com/Esteebaan23" target="_blank" rel="noreferrer">
             GitHub
           </a>
+          <a className="btn" href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AH8HC4zpheBy8QvGns1g8HchulvkQ7XuYyy54fM5uF4TG74CjuPhDFDMiRFvQn-D-YBEfP9CFNgtVeKIJMQMyg&user=epB8LggAAAAJ" target="_blank" rel="noreferrer">
+            Google Scholar
+          </a>
           <a className="btn" href="https://www.linkedin.com/in/harold-lucero-nieto-a70275259/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
           <a className="btn" href="mailto:esteebaan.lucero.23@gmail.com">
             Email
+          </a>
+          <a className="btn" href="https://drive.google.com/file/d/1C5iJL1vSsAKD7xPs_irfvdkySxxe_exe/view" target="_blank" rel="noreferrer">
+            Reccomendation Letter
           </a>
         </div>
       </div>
