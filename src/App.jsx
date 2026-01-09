@@ -30,7 +30,8 @@ const FEATURED = [
       "Built hybrid image classifiers combining ResNet50 and Vision Transformer architectures to distinguish chamber-forming vs non-forming organoids, achieving 95.09% accuracy and outperforming baseline models.",
       "Developed conditional image-to-image generation models using U-Net and ResUNet to predict fluorescence channels from brightfield images, reaching PSNR 24.84 and SSIM 0.928 with ResUNet.",
       "Designed an end-to-end pipeline integrating training, evaluation, and model comparison to support robust biomedical image analysis workflows.",
-      "Implemented systematic evaluation across classification and generation tasks using metrics such as accuracy, precision, recall, F1-score, PSNR, and SSIM to ensure reproducibility and stable performance."
+      "Implemented systematic evaluation across classification and generation tasks using metrics such as accuracy, precision, recall, F1-score, PSNR, and SSIM to ensure reproducibility and stable performance.",
+      "Integrated FiftyOne into the evaluation workflow to visualize predictions, inspect misclassifications, and analyze dataset-level patterns, enabling more informed debugging and comparison across model variants."
     ],
     links: [
       { label: "GitHub", href: "https://github.com/Esteebaan23/Organoid-Brightfield-to-Fluorescence-Image-Translation" },
