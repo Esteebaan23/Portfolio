@@ -70,17 +70,17 @@ const FEATURED = [
 ]
 
 const ML_PROJECTS = [
-    {
-      title: "Car Driving Lane Segmentation",
-      meta: "Semantic segmentation, computer vision",
-      bullets: [
-        "Built a lane segmentation pipeline to extract drivable lane markings from road scenes using SAM2.",
-        "Implemented training and inference workflows that support rapid iteration and visual inspection of segmentation results.",
-        "Generated qualitative visualizations to analyze model behavior and highlight common failure modes."
-      ],
-      links: [{ label: "GitHub", href: "https://github.com/Esteebaan23/Car_Driving_Lane_Segmentation_SAM2" }],
-    },
-    {
+  {
+    title: "Car Driving Lane Segmentation",
+    meta: "Semantic segmentation, computer vision",
+    bullets: [
+      "Built a lane segmentation pipeline to extract drivable lane markings from road scenes using SAM2.",
+      "Implemented training and inference workflows that support rapid iteration and visual inspection of segmentation results.",
+      "Generated qualitative visualizations to analyze model behavior and highlight common failure modes."
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/Esteebaan23/Car_Driving_Lane_Segmentation_SAM2" }],
+  },
+  {
     title: "Classification of Licence Plates",
     meta: "Computer vision classification, model benchmarking",
     bullets: [
@@ -121,7 +121,7 @@ const ML_PROJECTS = [
     links: [{ label: "GitHub", href: "https://github.com/Esteebaan23/House_Price_Prediction" }],
   },
 
-  
+
   {
     title: "Student Performance Analysis",
     meta: "Data analysis and supervised learning, interpretable models",
@@ -143,7 +143,7 @@ const ML_PROJECTS = [
     links: [{ label: "GitHub", href: "https://github.com/Esteebaan23/Disaster_Tweets_LSTM_Bert_Deployment" }],
   },
 
-   {
+  {
     title: "Store Sales Forecasting",
     meta: "Time Series Forecasting, Regression, XGBoost",
     bullets: [
@@ -168,6 +168,34 @@ const AWARDS = [
     description:
       "Recognized as the top graduate of the Mechatronics Engineering program for outstanding academic performance and project excellence.",
     link: "https://drive.google.com/file/d/1e3byD04eSo2OzKgJsXillLh0GN1xpA76/view?usp=sharing",
+    linkLabel: "View Certificate",
+  },
+]
+
+
+const CERTIFICATES = [
+  {
+    title: "Harvard Professional Certificate in Artificial Intelligence",
+    issuer: "Harvard University (edX)",
+    link: "https://credentials.edx.org/credentials/fdfeb3f91ea745ea8fe8246f6207fc06/",
+    linkLabel: "View Certificate",
+  },
+  {
+    title: "Deep Learning Applications for Computer Vision",
+    issuer: "Coursera",
+    link: "https://www.coursera.org/account/accomplishments/verify/3KE0GHOIJM5B",
+    linkLabel: "View Certificate",
+  },
+  {
+    title: "PyTorch Bootcamp",
+    issuer: "OpenCV University",
+    link: "https://courses.opencv.org/certificates/0f7f17877e904922b8e6186c69227212",
+    linkLabel: "View Certificate",
+  },
+  {
+    title: "OpenCV Bootcamp",
+    issuer: "OpenCV University",
+    link: "https://courses.opencv.org/certificates/ebb58714fb00456583f75f7bd8eab422",
     linkLabel: "View Certificate",
   },
 ]
@@ -207,7 +235,7 @@ export default function App() {
       <div className="hero">
         <h1 className="h1">Applied ML, NLP and Computer Vision projects.</h1>
         <p className="sub">
-          I build end-to-end machine learning systems, from data preparation and model training to rigorous evaluation, 
+          I build end-to-end machine learning systems, from data preparation and model training to rigorous evaluation,
           spanning NLP, computer vision, biomedical imaging, and applied ML tooling.
         </p>
 
@@ -258,75 +286,104 @@ export default function App() {
         </div>
       </div>
       <div className="section">
-  <h2>Awards and Recognition</h2>
+        <h2>Awards and Recognition</h2>
 
-  <div className="grid">
-    {AWARDS.map((a) => (
-      <div className="card" key={a.title}>
-        <h3>{a.title}</h3>
-        <p className="meta">{a.description}</p>
+        <div className="grid">
+          {AWARDS.map((a) => (
+            <div className="card" key={a.title}>
+              <h3>{a.title}</h3>
+              <p className="meta">{a.description}</p>
 
-        {a.link && (
-          <div className="links">
-            <a
-              className="taglink"
-              href={a.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {a.linkLabel || "View Certificate"}
-            </a>
-          </div>
-        )}
+              {a.link && (
+                <div className="links">
+                  <a
+                    className="taglink"
+                    href={a.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {a.linkLabel || "View Certificate"}
+                  </a>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
 
       <div className="section">
         <h2>Machine Learning Projects (University)</h2>
 
         <div className="carouselWrap">
-  <button
-    className="carouselBtn"
-    onClick={() => document.getElementById("ml-carousel")?.scrollBy({ left: -420, behavior: "smooth" })}
-    aria-label="Scroll left"
-  >
-    ◀
-  </button>
+          <button
+            className="carouselBtn"
+            onClick={() => document.getElementById("ml-carousel")?.scrollBy({ left: -420, behavior: "smooth" })}
+            aria-label="Scroll left"
+          >
+            ◀
+          </button>
 
-  <div id="ml-carousel" className="carousel" role="region" aria-label="Machine learning projects carousel">
-    {ML_PROJECTS.map((p) => (
-      <div className="carouselItem" key={p.title}>
-        <div className="card" style={{ height: "100%" }}>
-          <h3>{p.title}</h3>
-          <p className="meta">{p.meta}</p>
-          <ul>
-            {p.bullets.map((b, i) => (
-              <li key={i}>{b}</li>
+          <div id="ml-carousel" className="carousel" role="region" aria-label="Machine learning projects carousel">
+            {ML_PROJECTS.map((p) => (
+              <div className="carouselItem" key={p.title}>
+                <div className="card" style={{ height: "100%" }}>
+                  <h3>{p.title}</h3>
+                  <p className="meta">{p.meta}</p>
+                  <ul>
+                    {p.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                  <div className="links">
+                    {p.links.map((l) => (
+                      <a key={l.label} className="taglink" href={l.href} target="_blank" rel="noreferrer">
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
             ))}
-          </ul>
-          <div className="links">
-            {p.links.map((l) => (
-              <a key={l.label} className="taglink" href={l.href} target="_blank" rel="noreferrer">
-                {l.label}
-              </a>
+          </div>
+
+          <button
+            className="carouselBtn"
+            onClick={() => document.getElementById("ml-carousel")?.scrollBy({ left: 420, behavior: "smooth" })}
+            aria-label="Scroll right"
+          >
+            ▶
+          </button>
+
+
+
+        </div>
+
+        <div className="section">
+          <h2>Certificates</h2>
+
+          <div className="grid">
+            {CERTIFICATES.map((c) => (
+              <div className="card" key={c.title}>
+                <h3>{c.title}</h3>
+                <p className="meta">{c.issuer}</p>
+
+                <div className="links">
+                  <a
+                    className="taglink"
+                    href={c.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Certificate
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </div>
-      </div>
-    ))}
-  </div>
 
-  <button
-    className="carouselBtn"
-    onClick={() => document.getElementById("ml-carousel")?.scrollBy({ left: 420, behavior: "smooth" })}
-    aria-label="Scroll right"
-  >
-    ▶
-  </button>
-</div>
+
 
       </div>
 
