@@ -35,6 +35,7 @@ const FEATURED = [
     ],
     links: [
       { label: "GitHub", href: "https://github.com/Esteebaan23/Organoid-Brightfield-to-Fluorescence-Image-Translation" },
+      { label: "UNT Research Day Poster", href: "https://drive.google.com/file/d/1uLRmndkkjBWE9pTHy7koUVp7rzAS30i1/view" },
     ],
   },
   {
