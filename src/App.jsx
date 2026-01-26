@@ -1,10 +1,27 @@
 import ragImg from "./assets/RAG.jpg"
+import ragpdf from "./assets/pdf_RAG.png"
 import organoidsImg from "./assets/organoids.png"
 import smallObjectsImg from "./assets/small-objects.png"
 import robotYoloImg from "./assets/robot-yolo.png"
+import roboticArm from "./assets/Ensamble_Brazo.png"
 import profileImg from "./assets/Harold.jpg"
 
+
 const FEATURED = [
+  {
+    title: "Resume Analyzer RAG Assistant",
+    meta: "LangChain, FAISS, PDF parsing, retrieval-augmented generation",
+    image: ragpdf,
+    alt: "Resume RAG assistant preview",
+    bullets: [
+      "Developed a Retrieval-Augmented Generation (RAG) assistant using LangChain and FAISS to generate document-grounded answers and automated summaries from private PDFs.",
+      "Implemented an end-to-end pipeline (PDF parsing → chunking → embeddings → FAISS vector indexing → semantic retrieval → answer generation) to extract key insights from documents efficiently.",
+      "Built a multi-user, session-safe Gradio app to support scalable interactive Q\&A, enabling fast querying of internal documents such as reports, policies, and manuals."
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/Esteebaan23/CV-Summarize_RAG" }
+    ],
+  },
   {
     title: "Bilingual RAG QA Bot for International Students",
     meta: "Retrieval-Augmented Generation, multilingual NLP",
@@ -68,6 +85,23 @@ const FEATURED = [
       { label: "IEEE Publication", href: "https://ieeexplore.ieee.org/document/10405395" },
     ],
   },
+  {
+    title: "3DOF Pneumatic Robotic Arm (Remote-Controlled)",
+    meta: "Pneumatic actuation, embedded control, real-time manipulation",
+    image: roboticArm,
+    alt: "3DOF pneumatic robotic arm preview",
+    bullets: [
+      "Designed and assembled a 3DOF pneumatic robotic arm for real-time pick-and-place style manipulation using compressed-air actuation.",
+      "Implemented embedded control logic to drive pneumatic valves and coordinate joint motion, enabling stable and repeatable arm movements.",
+      "Integrated remote-control operation for live manipulation and testing, validating responsiveness and system behavior under real-time inputs."
+    ],
+    links: [
+      { label: "Demo", href: "https://drive.google.com/file/d/1YkjZtpVBqmxntnnmAefZ0UnL5WFi-1kV/view?usp=sharing"}
+      
+    ],
+  },
+
+
 ]
 
 const ML_PROJECTS = [
@@ -158,14 +192,14 @@ const ML_PROJECTS = [
 
 const AWARDS = [
   {
-    title: "Distinguished Artificial Intelligence Student",
+    title: "Distinguished Artificial Intelligence Student Award (M.S.)",
     description:
       "Awarded for consistent academic excellence and high-impact contributions across coursework and applied engineering projects.",
     link: "https://drive.google.com/file/d/1d3mRcob3gmt7jy9i-auv6ML1ukVkQ75g/view?usp=sharing",
     linkLabel: "View Certificate",
   },
   {
-    title: "Best Graduate, Mechatronics Engineering",
+    title: "Best Graduate Award, Mechatronics Engineering (B.S.)",
     description:
       "Recognized as the top graduate of the Mechatronics Engineering program for outstanding academic performance and project excellence.",
     link: "https://drive.google.com/file/d/1e3byD04eSo2OzKgJsXillLh0GN1xpA76/view?usp=sharing",
@@ -234,7 +268,7 @@ export default function App() {
       </div>
 
       <div className="hero">
-        <h1 className="h1">Applied ML, NLP and Computer Vision projects.</h1>
+        <h1 className="h1">Applied ML, NLP, Computer Vision & Robotics projects.</h1>
         <p className="sub">
           I build end-to-end machine learning systems, from data preparation and model training to rigorous evaluation,
           spanning NLP, computer vision, biomedical imaging, and applied ML tooling.
