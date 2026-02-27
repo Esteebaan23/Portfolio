@@ -3,11 +3,48 @@ import ragpdf from "./assets/pdf_RAG.png"
 import organoidsImg from "./assets/organoids.png"
 import smallObjectsImg from "./assets/small-objects.png"
 import robotYoloImg from "./assets/robot-yolo.png"
+import xray from "./assets/xray.png"
+import lpr from "./assets/lpr.png"
 import roboticArm from "./assets/Ensamble_Brazo.png"
 import profileImg from "./assets/Harold.jpg"
 
 
 const FEATURED = [
+  {
+    title: "Vehicle & License Plate Detection with YOLO26 + OCR",
+    meta: "YOLO26, Computer Vision, OCR, ROI Filtering, FiftyOne, Real-Time Inference",
+    image: lpr,
+    alt: "Vehicle and license plate detection system preview",
+    bullets: [
+      "Developed a real-time vehicle and license plate detection pipeline using YOLO26, combining multi-stage detection logic with confidence-based validation to improve precision.",
+      "Implemented structured ROI filtering and optional plate-to-vehicle association constraints to reduce false positives in dynamic traffic environments.",
+      "Integrated OCR triggered only on high-confidence detections to optimize computational efficiency while maintaining reliable text extraction.",
+      "Designed evaluation and error analysis workflows using FiftyOne to inspect detections, tune thresholds, and improve robustness under varying lighting and motion conditions."
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/Esteebaan23/Vehicle-License-Plate-Detection-with-YOLO26" }
+    ],
+  },
+
+
+  {
+    title: "Chest X-Ray Classification with YOLO26",
+    meta: "YOLO26, Medical Imaging AI, FiftyOne, GCP Deployment, High-Speed Inference",
+    image: xray,
+    alt: "Chest X-ray classification system preview",
+    bullets: [
+      "Built a YOLO-based medical imaging pipeline for chest X-ray classification (Normal vs Anomaly), achieving 96–98% accuracy with ~2 ms GPU inference latency.",
+      "Designed scalable preprocessing, augmentation, and evaluation workflows to improve robustness under variable imaging conditions and enhance model generalization.",
+      "Performed systematic failure analysis and dataset error inspection using FiftyOne to increase deployment stability and real-world reliability.",
+      "Deployed the model on Google Cloud Platform with auto-suspend configuration for cost-efficient hosting, enabling on-demand inference with automatic reload when inactive."
+    ],
+    links: [
+      { label: "Demo GCP", href: "https://xray-service-5372311531.us-central1.run.app/" },
+      { label: "Github", href: "https://github.com/Esteebaan23/XRay_YOLO26" }
+    ],
+  },
+
+
   {
     title: "Resume Analyzer RAG Assistant",
     meta: "LangChain, FAISS, PDF parsing, retrieval-augmented generation",
@@ -46,8 +83,8 @@ const FEATURED = [
     bullets: [
       "Built hybrid image classifiers combining ResNet50 and Vision Transformer architectures to distinguish chamber-forming vs non-forming organoids, achieving 95.09% accuracy and outperforming baseline models.",
       "Developed conditional image-to-image generation models using U-Net and ResUNet to predict fluorescence channels from brightfield images, reaching PSNR 24.84 and SSIM 0.928 with ResUNet.",
-      "Designed an end-to-end pipeline integrating training, evaluation, and model comparison to support robust biomedical image analysis workflows.",
-      "Implemented systematic evaluation across classification and generation tasks using metrics such as accuracy, precision, recall, F1-score, PSNR, and SSIM to ensure reproducibility and stable performance.",
+      //"Designed an end-to-end pipeline integrating training, evaluation, and model comparison to support robust biomedical image analysis workflows.",
+      //"Implemented systematic evaluation across classification and generation tasks using metrics such as accuracy, precision, recall, F1-score, PSNR, and SSIM to ensure reproducibility and stable performance.",
       "Integrated FiftyOne into the evaluation workflow to visualize predictions, inspect misclassifications, and analyze dataset-level patterns, enabling more informed debugging and comparison across model variants."
     ],
     links: [
@@ -105,6 +142,7 @@ const FEATURED = [
 ]
 
 const ML_PROJECTS = [
+  
   {
     title: "Car Driving Lane Segmentation",
     meta: "Semantic segmentation, computer vision",
