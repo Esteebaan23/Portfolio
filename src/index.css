@@ -507,21 +507,7 @@ a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 980px){
-
-  /* cambia grid a layout vertical real */
-  .homeLayout{
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  /* el TOC se vuelve un bloque normal */
-  .toc{
-    position: relative;
-    top: auto;
-    width: 100%;
-  }
-
+  .homeLayout{ grid-template-columns: 1fr; }
 }
 
 /* ===== TOC ===== */
@@ -1352,4 +1338,3 @@ a:hover { text-decoration: underline; }
     text-overflow: ellipsis !important;
   }
 }
-
