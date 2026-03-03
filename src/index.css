@@ -1238,7 +1238,7 @@ body{
 
 
 /* ===== Header: mobile compact mode ===== */
-@media (max-width: 640px){
+@media (max-width: 800px){
 
   /* reduce padding general del layout */
   .container{
