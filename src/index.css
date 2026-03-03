@@ -1124,3 +1124,113 @@ a:hover { text-decoration: underline; }
   color: #00ff37;
   text-shadow: 0 0 12px rgba(0,255,136,0.4);
 }
+
+
+@media (max-width: 900px){
+  .homeLayout{
+    display: grid;
+    grid-template-columns: 1fr; /* una columna */
+    gap: 14px;
+  }
+
+  /* TOC ya no es sidebar */
+  .toc{
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: none;
+  }
+}
+
+@media (max-width: 900px){
+  .tocGroup{
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 10px;
+  }
+
+  /* Los botones del TOC en una fila */
+  .tocGroup .tocItem{
+    white-space: nowrap;
+  }
+
+  /* Contenedor scrolleable */
+  .tocGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* fila horizontal SOLO para los items */
+  .tocGroup .tocItem{
+    display: inline-flex;
+  }
+
+  /* hack: convierte lista de botones en carrusel horizontal */
+  .tocGroup{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* si tu tocItems están dentro de un contenedor, mejor: */
+  .tocGroup{
+    scrollbar-width: thin;
+  }
+}
+
+@media (max-width: 900px){
+  .tocItem,
+  .tocButtons .btn{
+    font-size: 13px;
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+
+  .tocButtons{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 por fila */
+    gap: 10px;
+  }
+
+  .heroAvatarNeon{
+    width: min(72vw, 320px);
+  }
+
+  .heroCaption{
+    bottom: 8px; /* menos separación */
+    font-size: 11px;
+    padding: 9px 18px;
+  }
+
+  .h1{
+    font-size: clamp(26px, 7vw, 36px);
+    text-align: center;
+  }
+
+  .heroBadges{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px){
+  .nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 10px 0;
+  }
+
+  /* Si tienes demasiados iconos, permite wrap */
+  .actions{
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .brand strong{ font-size: 16px; }
+  .brand span{ font-size: 12px; }
+}
+
+/* evita overflow horizontal en móvil */
+body{
+  overflow-x: hidden;
+}
