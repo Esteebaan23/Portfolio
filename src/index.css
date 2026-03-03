@@ -1363,23 +1363,40 @@ a:hover { text-decoration: underline; }
     width: min(300px, 82vw) !important;
   }
 
-  /* caption más compacta y con 2 líneas max */
+  .heroAvatarWrap{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* caption cruzando el borde inferior del círculo */
+.heroCaption{
+  position: absolute;
+  bottom: -14px;   /* controla qué tanto cruza la foto */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+}
+
+/* ajuste fino para móvil */
+@media (max-width:560px){
+
   .heroCaption{
-  padding: 8px 14px !important;
-  font-size: 11px !important;
-  letter-spacing: 0.12em !important;
-  line-height: 1.1 !important;
+    bottom: -18px;     /* baja un poco más para cruzar el borde */
+    font-size: 11px;
+    padding: 8px 16px;
+  }
 
-  /* mueve el caption hacia arriba */
-  transform: translateY(-68px);
+  .heroAvatarNeon{
+    width: min(300px,82vw);
+  }
 
-  /* permite wrap controlado */
-  white-space: normal !important;
-  max-width: min(260px, 86vw) !important;
-  text-align: center !important;
-
-  /* glow */
-  box-shadow: 0 0 10px rgba(9, 255, 0, 0.25) !important;
 }
 
   /* --- Nombre + chips: reduce tamaño y spacing --- */
