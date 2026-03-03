@@ -1354,52 +1354,70 @@ a:hover { text-decoration: underline; }
 }
 
 /* ===========================
-   MOBILE POLISH: Hero button + bio text (iPhone)
+   MOBILE POLISH (iPhone) - PRO + STABLE
    =========================== */
 @media (max-width: 560px){
 
-  /* --- Avatar / caption: que no tape cara ni robe espacio --- */
-  .heroAvatarNeon{
-    width: min(300px, 82vw) !important;
-  }
-
+  /* --- Avatar wrapper: reference for absolute caption --- */
   .heroAvatarWrap{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
 
-/* caption cruzando el borde inferior del círculo */
-.heroCaption{
-  position: absolute;
-  bottom: -14px;   /* controla qué tanto cruza la foto */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 12px;
-  letter-spacing: 0.15em;
-}
-
-/* ajuste fino para móvil */
-@media (max-width:560px){
-
-  .heroCaption{
-    bottom: -18px;     /* baja un poco más para cruzar el borde */
-    font-size: 11px;
-    padding: 8px 16px;
+    /* importante: espacio para que el caption no tape lo de abajo */
+    padding-bottom: 22px !important;
   }
 
+  /* --- Avatar size --- */
   .heroAvatarNeon{
-    width: min(300px,82vw);
+    width: min(310px, 84vw) !important;
+    border-width: 3px !important;
   }
 
-}
+  /* --- Caption: cross the photo (absolute, not transform hacks) --- */
+  .heroCaption{
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 6px !important;                 /* ✅ cruza la foto */
+    transform: translateX(-50%) !important; /* ✅ centrado estable */
+    z-index: 20 !important;
 
-  /* --- Nombre + chips: reduce tamaño y spacing --- */
+    padding: 10px 18px !important;
+    border-radius: 999px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1.1 !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+
+    /* pro look */
+    background: rgba(0, 0, 0, 0.70) !important;
+    border: 1px solid rgba(0, 255, 119, 0.85) !important;
+    color: rgb(0, 255, 119) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    /* glow más premium */
+    box-shadow:
+      0 0 10px rgba(0,255,120,0.25),
+      0 0 26px rgba(0,255,120,0.20) !important;
+
+    /* evita que se haga enorme */
+    max-width: min(320px, 90vw) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* si quieres que el caption “se meta” un poquito más en la foto */
+  /* sube/baja este número (más negativo = más arriba) */
+  /* .heroCaption{ bottom: 0px !important; } */
+
+  /* --- Name + chips: spacing compact --- */
   .h1{
     font-size: 30px !important;
     margin-top: 8px !important;
@@ -1409,6 +1427,7 @@ a:hover { text-decoration: underline; }
   .heroBadges{
     gap: 8px !important;
     margin: 8px 0 10px !important;
+    justify-content: center !important;
   }
 
   .pill, .chip{
@@ -1416,28 +1435,25 @@ a:hover { text-decoration: underline; }
     padding: 6px 10px !important;
   }
 
-  /* --- Bio (descripción): legible y más corta visualmente --- */
+  /* --- Bio text: readable (no justify on mobile) --- */
   .heroCopy .sub{
     font-size: 14px !important;
-    line-height: 1.55 !important;
+    line-height: 1.6 !important;
     opacity: 0.92 !important;
-
-    /* evita esas “líneas larguísimas” raras */
     text-align: left !important;
   }
 
-  /* si tienes el párrafo grande en otro selector (homeHeroStack), cubre ambos */
   .homeHeroStack p,
   .homeHero2 p,
   .homeHero p{
     font-size: 14px !important;
-    line-height: 1.6 !important;
+    line-height: 1.65 !important;
     text-align: left !important;
   }
 
-  /* --- Stats (2+/17+/4+) --- */
+  /* --- Stats: stack vertical --- */
   .statsRow{
-    grid-template-columns: 1fr !important; /* en móvil: uno debajo de otro */
+    grid-template-columns: 1fr !important;
     gap: 10px !important;
     margin-top: 10px !important;
   }
@@ -1450,7 +1466,7 @@ a:hover { text-decoration: underline; }
     font-size: 24px !important;
   }
 
-  /* --- View Projects button: que no sea una barra gigante --- */
+  /* --- View Projects: button not giant --- */
   .heroActions{
     margin-top: 12px !important;
     width: 100% !important;
@@ -1459,15 +1475,18 @@ a:hover { text-decoration: underline; }
   .heroActions .btn{
     width: 100% !important;
     min-width: 0 !important;
-
     padding: 12px 14px !important;
     font-size: 15px !important;
-    font-weight: 700 !important;
-
+    font-weight: 800 !important;
     border-radius: 14px !important;
+
+    /* pequeño upgrade */
+    background: rgba(255,255,255,0.05) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
   }
 
-  /* Evita “tap highlight” feo en iOS */
+  /* iOS tap highlight */
   .heroActions .btn,
   .iconBtn,
   .tocItem{
