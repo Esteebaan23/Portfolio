@@ -1369,7 +1369,7 @@ a:hover { text-decoration: underline; }
     font-size: 11px !important;
     letter-spacing: 0.12em !important;
     line-height: 1.1 !important;
-
+    top: -22px;
     /* permite wrap controlado */
     white-space: normal !important;
     max-width: min(260px, 86vw) !important;
