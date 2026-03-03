@@ -17,9 +17,9 @@ export default function Header() {
 
       <div className="headerActions">
 
-        <a href="/" className="iconBtn" title="Home">
+        <Link to="/" className="iconBtn" title="Home" aria-label="Home">
           <Home size={18} />
-        </a>
+        </Link>
 
         <a href="https://github.com/Esteebaan23" target="_blank" rel="noreferrer" className="iconBtn" title="GitHub">
           <Github size={18} />
