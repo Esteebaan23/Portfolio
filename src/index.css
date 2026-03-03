@@ -1125,60 +1125,63 @@ a:hover { text-decoration: underline; }
   text-shadow: 0 0 12px rgba(0,255,136,0.4);
 }
 
+/* =========================================================
+   MOBILE FIX PACK
+   - Header compacto (sin que se corte)
+   - Todo entra mejor en la pantalla al abrir
+   - Acciones/iconos en fila scrolleable
+   - Reduce tamaños y espacios para iPhone/Android
+   ========================================================= */
 
-/* =========================
-   Mobile / Responsive
-   ========================= */
+@media (max-width: 640px){
 
-/* Evita overflow horizontal por sombras/glows */
-html, body { max-width: 100%; overflow-x: hidden; }
-
-/* ---------- <= 900px: Home pasa a 1 columna ---------- */
-@media (max-width: 900px){
-  .homeLayout{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
+  /* Evita scroll horizontal accidental */
+  html, body{
+    overflow-x: hidden;
   }
 
-  .toc{
-    position: relative;
-    top: auto;
-    height: auto;
-    max-height: none;
-  }
-}
-
-/* ---------- <= 800px: Header compacto ---------- */
-@media (max-width: 800px){
-  /* padding general para móvil */
+  /* Container: menos padding arriba para que “entre todo” */
   .container{
-    max-width: 100%;
+    padding-top: 10px;
     padding-left: 12px;
     padding-right: 12px;
+    padding-bottom: 44px;
+    overflow: visible;
   }
 
-  /* header */
+  /* ---------------- Header / Nav ---------------- */
+
   .nav{
     position: sticky;
     top: 0;
-    z-index: 60;
+    z-index: 50;
     padding: 10px 0;
     gap: 10px;
-    align-items: center;
+
+    /* clave para que no “recorte” glow/blur */
+    overflow: visible;
+
+    /* permite que el header se acomode en 2 filas */
     flex-wrap: wrap;
-    overflow: visible; /* evita recorte del glow */
+    align-items: center;
+
+    backdrop-filter: blur(10px);
   }
 
+  /* bloque izquierdo: avatar + nombre + subtitle */
   .brandRow{
     gap: 10px;
-    min-width: 0;
+    min-width: 0;      /* importante para que no desborde */
     flex: 1 1 auto;
   }
 
   .avatar{
     width: 34px;
     height: 34px;
+  }
+
+  .brand{
+    min-width: 0;
   }
 
   .brand strong{
@@ -1189,26 +1192,31 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .brand span{
     font-size: 12px;
     line-height: 1.2;
-    max-width: 26ch;
+
+    /* evita que el subtitle “infle” el header */
+    max-width: 32ch;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2;     /* máximo 2 líneas */
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  /* iconos: fila scrolleable */
+  /* acciones/iconos: segunda fila, scroll horizontal */
   .actions,
   .headerActions{
     width: 100%;
     display: flex;
     gap: 10px;
     justify-content: flex-start;
+
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+
     padding-bottom: 4px;
   }
 
+  /* botones de icono más chicos en móvil */
   .iconBtn{
     width: 34px;
     height: 34px;
@@ -1216,6 +1224,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
     flex: 0 0 auto;
   }
 
+  /* scrollbar discreto (iOS/Android) */
   .actions::-webkit-scrollbar,
   .headerActions::-webkit-scrollbar{
     height: 6px;
@@ -1225,64 +1234,34 @@ html, body { max-width: 100%; overflow-x: hidden; }
     background: rgba(255,255,255,0.15);
     border-radius: 999px;
   }
-}
 
-/* ---------- <= 640px: TOC y HERO optimizados ---------- */
-@media (max-width: 640px){
-  /* TOC: convierte lista de Contents en carrusel horizontal */
-  .tocGroup{
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 10px;
+  /* ---------------- Home / Hero ---------------- */
+
+  /* evita que el home arranque “demasiado abajo” */
+  .homeMain{
+    margin-top: 0;
   }
 
-  /* si tienes un título "Contents", dale aire */
-  .tocGroupTitle{
-    margin-bottom: 8px;
-  }
-
-  /* Los items en una FILA scrolleable */
-  .tocGroup{
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* OJO: aquí hacemos que los botones se vean como fila */
-  .tocGroup .tocItem{
-    display: inline-flex;
-    white-space: nowrap;
-    margin-right: 10px; /* separa entre botones */
-  }
-
-  /* Ajuste tipográfico uniforme */
-  .tocItem,
-  .tocButtons .btn{
-    font-size: 13px;
-    padding: 10px 12px;
-    border-radius: 14px;
-  }
-
-  /* Explore by domain: 2 columnas */
-  .tocButtons{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  /* HERO */
   .homeHeroStack{
-    padding: 16px 14px; /* si tu hero tiene padding grande */
+    margin-top: 8px;
+    padding: 14px 14px;
+    scroll-margin-top: 88px; /* para TOC/scrollIntoView si aplica */
   }
 
+  /* avatar grande: reducir para que entre mejor en el primer pantallazo */
   .heroAvatarNeon{
-    width: min(78vw, 320px);
+    width: min(72vw, 285px);
+    height: auto;
   }
 
   .heroCaption{
-    bottom: 8px;
+    bottom: 10px;
+    padding: 8px 16px;
     font-size: 11px;
-    padding: 9px 18px;
+    letter-spacing: 0.18em;
   }
 
+  /* títulos y badges */
   .h1{
     font-size: clamp(26px, 7vw, 36px);
     text-align: center;
@@ -1290,9 +1269,46 @@ html, body { max-width: 100%; overflow-x: hidden; }
 
   .heroBadges{
     justify-content: center;
+    gap: 10px;
   }
 
+  .pill{
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  /* texto un poco más compacto */
   .sub{
     font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* stats: que no se rompa */
+  .statsRow{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .statCard{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ---------------- Project cards (si aplica en móvil) ---------------- */
+  .featureCard{
+    grid-template-columns: 1fr;
+  }
+
+  .featureMedia{
+    height: clamp(200px, 55vw, 300px);
+  }
+}
+
+/* Soporte iOS moderno: viewport dinámico (solo si algo usa 100vh) */
+@supports (height: 100dvh){
+  .homeMain{
+    min-height: 100dvh;
   }
 }
