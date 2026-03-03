@@ -1365,19 +1365,22 @@ a:hover { text-decoration: underline; }
 
   /* caption más compacta y con 2 líneas max */
   .heroCaption{
-    padding: 8px 14px !important;
-    font-size: 11px !important;
-    letter-spacing: 0.12em !important;
-    line-height: 1.1 !important;
-    top: -22px;
-    /* permite wrap controlado */
-    white-space: normal !important;
-    max-width: min(260px, 86vw) !important;
-    text-align: center !important;
+  padding: 8px 14px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  line-height: 1.1 !important;
 
-    /* si seguía “pesada”, baja brillo */
-    box-shadow: 0 0 10px rgba(0,255,120,0.25) !important;
-  }
+  /* mueve el caption hacia arriba */
+  transform: translateY(-28px);
+
+  /* permite wrap controlado */
+  white-space: normal !important;
+  max-width: min(260px, 86vw) !important;
+  text-align: center !important;
+
+  /* glow */
+  box-shadow: 0 0 10px rgba(9, 255, 0, 0.25) !important;
+}
 
   /* --- Nombre + chips: reduce tamaño y spacing --- */
   .h1{
