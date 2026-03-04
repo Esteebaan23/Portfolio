@@ -30,7 +30,7 @@ function useCountUp(target, durationMs = 900) {
 export default function Home() {
   const sectionIds = useMemo(
     () => [
-      { id: "about", label: "About" },
+      { id: "top", label: "About" },          // 👈 cambia: About scrollea al TOP real
       { id: "education", label: "Education" },
       { id: "awards", label: "Awards" },
       { id: "publications", label: "Publications" },
@@ -39,26 +39,34 @@ export default function Home() {
     []
   );
 
-  const [active, setActive] = useState("about");
+  const [active, setActive] = useState("top");
   const refs = useRef({});
 
-  // Ajusta si quieres
   const statYears = useCountUp(2);
   const statProjects = useCountUp(17);
   const statDomains = useCountUp(4);
 
+  // ✅ iPhone-safe smooth scroll (NO scrollIntoView)
   const scrollTo = (id) => {
     const el = refs.current[id];
     if (!el) return;
 
-    const headerOffset = 110; // ajusta: 90–130 según tu header
+    const headerOffset = 110; // mismo offset que tu navbar sticky
     const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-    window.scrollTo({ top: y, behavior: "smooth" });
+    // iOS friendly + clamp
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+
+    // opcional: actualiza hash sin saltos raros
+    if (id !== "top") history.replaceState(null, "", `#${id}`);
+    else history.replaceState(null, "", window.location.pathname);
   };
 
   useEffect(() => {
-    const els = sectionIds.map((s) => refs.current[s.id]).filter(Boolean);
+    const els = sectionIds
+      .map((s) => refs.current[s.id])
+      .filter(Boolean);
+
     if (els.length === 0) return;
 
     const obs = new IntersectionObserver(
@@ -87,12 +95,18 @@ export default function Home() {
 
         <div className="tocGroup">
           <div className="tocGroupTitle">Contents</div>
+
+          {/* ✅ NOTE: en iPhone es más confiable si evitamos “ghost clicks”:
+              - touchAction: manipulation
+              - onPointerUp (iOS responde mejor que onClick en algunos casos)
+          */}
           {sectionIds.map((s) => (
             <button
               key={s.id}
               className={`tocItem toc-${s.id} ${active === s.id ? "active" : ""}`}
-              onClick={() => scrollTo(s.id)}
               type="button"
+              style={{ touchAction: "manipulation" }} // ✅ iOS tap reliability
+              onPointerUp={() => scrollTo(s.id)}      // ✅ mejor que onClick en iOS
             >
               {s.label}
             </button>
@@ -102,16 +116,21 @@ export default function Home() {
         <div className="tocCTA">
           <div className="tocCTATitle">Explore by domain</div>
           <div className="tocButtons">
-            <Link className="btn domain-cv" to="/computer-vision">Computer Vision</Link>
-            <Link className="btn domain-nlp" to="/nlp-genai">NLP / GenAI</Link>
-            <Link className="btn domain-ml" to="/ml-data-science">ML / Data Science</Link>
-            <Link className="btn domain-robotics" to="/robotics">Robotics</Link>
+            {/* ✅ IMPORTANTE: para “Computer Vision” y demás, SIEMPRE ir al top de esa página:
+                usa hash #top y crea ese ancla en esas páginas también. */}
+            <Link className="btn domain-cv" to="/computer-vision#top">Computer Vision</Link>
+            <Link className="btn domain-nlp" to="/nlp-genai#top">NLP / GenAI</Link>
+            <Link className="btn domain-ml" to="/ml-data-science#top">ML / Data Science</Link>
+            <Link className="btn domain-robotics" to="/robotics#top">Robotics</Link>
           </div>
         </div>
       </aside>
 
       {/* RIGHT: Content */}
       <div className="homeMain">
+        {/* ✅ TOP ANCHOR: Home real arriba */}
+        <div id="top" ref={(el) => (refs.current.top = el)} />
+
         {/* HERO */}
         <section className="homeHeroStack" id="about" ref={(el) => (refs.current.about = el)}>
           {/* Big round avatar */}
@@ -120,9 +139,7 @@ export default function Home() {
               <img src={profileImg} alt="Harold Lucero portrait" />
             </div>
 
-            <div className="heroCaption">
-              Machine Learning Engineer
-            </div>
+            <div className="heroCaption">Machine Learning Engineer</div>
           </div>
 
           <div className="heroCopy">
@@ -136,14 +153,15 @@ export default function Home() {
             </div>
 
             <p className="sub">
-              Machine Learning Engineer with 2+ years of hands-on experience designing end-to-end AI systems across Computer Vision, Gen AI, and Robotics. 
-              Combines a Master’s degree in Artificial Intelligence with a strong foundation in Mechatronics Engineering to build intelligent solutions.
+              Machine Learning Engineer with 2+ years of hands-on experience designing end-to-end AI systems across
+              Computer Vision, Gen AI, and Robotics. Combines a Master’s degree in Artificial Intelligence with a strong
+              foundation in Mechatronics Engineering to build intelligent solutions.
             </p>
 
             <p className="sub">
-              Designed hybrid deep learning architectures for medical imaging, developed object detection and perception systems
-              for autonomous platforms, and implemented RAG assistants using vector databases and
-              large language models. Experience spans data engineering, model optimization, evaluation pipelines, and cloud deployment
+              Designed hybrid deep learning architectures for medical imaging, developed object detection and perception
+              systems for autonomous platforms, and implemented RAG assistants using vector databases and large language
+              models. Experience spans data engineering, model optimization, evaluation pipelines, and cloud deployment
               workflows, with a focus on reliability and real-world constraints.
             </p>
 
@@ -163,14 +181,20 @@ export default function Home() {
             </div>
 
             <div className="heroActions">
-              <Link className="btn" to="/computer-vision">View Projects</Link>
+              {/* ✅ “View Projects” debería ir al top de Computer Vision */}
+              <Link className="btn" to="/computer-vision#top">
+                View Projects
+              </Link>
             </div>
           </div>
         </section>
 
         {/* EDUCATION */}
-        <section className="homeSectionCard section-education" id="education" ref={(el) => (refs.current.education = el)}>
-          
+        <section
+          className="homeSectionCard section-education"
+          id="education"
+          ref={(el) => (refs.current.education = el)}
+        >
           <h2>Education</h2>
           <div className="miniGrid">
             <div className="miniCard">
@@ -205,15 +229,17 @@ export default function Home() {
         </section>
 
         {/* PUBLICATIONS */}
-        <section className="homeSectionCard section-publications" id="publications"  ref={(el) => (refs.current.publications = el)}>
+        <section
+          className="homeSectionCard section-publications"
+          id="publications"
+          ref={(el) => (refs.current.publications = el)}
+        >
           <h2>Publications</h2>
           <div className="miniGrid">
             {PUBLICATIONS.map((p) => (
               <div className="miniCard" key={p.title}>
                 <div className="miniTitle">{p.title}</div>
-                {(p.venue || p.year) && (
-                  <div className="miniMeta">{[p.venue, p.year].filter(Boolean).join(" • ")}</div>
-                )}
+                {(p.venue || p.year) && <div className="miniMeta">{[p.venue, p.year].filter(Boolean).join(" • ")}</div>}
                 {p.description && <div className="miniText">{p.description}</div>}
                 {p.link && (
                   <div className="links">
@@ -226,8 +252,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        
 
         {/* CERTIFICATES */}
         <section className="homeSectionCard section-certs" id="certs" ref={(el) => (refs.current.certs = el)}>
