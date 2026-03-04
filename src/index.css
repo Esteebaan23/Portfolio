@@ -1344,37 +1344,22 @@ a:hover { text-decoration: underline; }
   }
 }
 
-/* ===========================
-   ✅ Mobile tap fix (iOS/Safari)
-   =========================== */
-@media (hover: none) and (pointer: coarse) {
+#about,
+#education,
+#awards,
+#publications,
+#certificates,
+#computer-vision,
+#nlp,
+#ml,
+#robotics {
+  scroll-margin-top: 120px;
+}
 
-  /* 1) Asegura que el tap en links/botones se registre bien */
-  a, button, .btn, .tocItem {
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-  }
+section[id] {
+  scroll-margin-top: 120px;
+}
 
-  /* 2) Fuerza que tus botones (Home / TOC) estén por ENCIMA de cualquier overlay */
-  .sectionNav,
-  .toc,
-  .tocButtons,
-  .homeMain,
-  .homeSectionCard {
-    position: relative;
-    z-index: 5;
-  }
-
-  /* 3) Cualquier “glow/overlay decorativo” NO debe capturar taps */
-  .heroGlow,
-  .heroVisualStack::before,
-  .heroVisualStack::after,
-  .heroAvatarNeon::before,
-  .heroAvatarNeon::after,
-  .homeHeroStack::before,
-  .homeHeroStack::after,
-  .homeHero2::before,
-  .homeHero2::after {
-    pointer-events: none !important;
-  }
+body {
+  -webkit-overflow-scrolling: touch;
 }
