@@ -1363,3 +1363,13 @@ section[id] {
 body {
   -webkit-overflow-scrolling: touch;
 }
+
+@media (max-width: 560px){
+  html, body{
+    height: auto !important;
+    overflow-y: visible !important; /* <- clave para iPhone */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+#top{ scroll-margin-top: 120px; }
