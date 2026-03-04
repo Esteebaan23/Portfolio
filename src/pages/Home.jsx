@@ -182,7 +182,7 @@ export default function Home() {
 
             <div className="heroActions">
               {/* ✅ “View Projects” debería ir al top de Computer Vision */}
-              <Link className="btn" to="/computer-vision#top">
+              <Link className="btn btnGlow" to="/computer-vision#top">
                 View Projects
               </Link>
             </div>

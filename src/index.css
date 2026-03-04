@@ -785,6 +785,45 @@ a:hover { text-decoration: underline; }
   margin: 10px 0 14px;
 }
 
+/* HERO BADGES — neon green */
+
+.heroBadges .pill{
+  border: 2px solid rgba(0,255,120,0.9);
+
+  box-shadow:
+    0 0 6px rgba(0, 255, 13,0.1),
+    0 0 14px rgba(0, 255, 13,0.1),
+    0 0 26px rgba(0, 255, 13,0.1);
+
+  transition: all 0.2s ease;
+}
+
+/* hover */
+
+.heroBadges .pill:hover{
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 10px rgb(0, 255, 13),
+    0 0 25px rgba(0, 255, 13,0.1),
+    0 0 45px rgba(0, 255, 13,0.1);
+}
+
+.taglink{
+  transition: all 0.18s ease;
+}
+
+/* hover fluorescente del mismo color */
+
+.taglink:hover{
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 6px currentColor,
+    0 0 14px currentColor,
+    0 0 28px currentColor;
+}
+
 .statsRow{
   display: grid;
   justify-content: center;
@@ -800,10 +839,124 @@ a:hover { text-decoration: underline; }
 .statCard{
   border-radius: 16px;
   text-align: center;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.04);
   padding: 14px 14px;
+
+  background: rgba(255,255,255,0.04);
+
+  /* borde blanco fluorescente */
+  border: 1px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.1),
+    0 0 16px rgba(255,255,255,0.1),
+    0 0 32px rgba(255,255,255,0.1);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
+/*
+.statCard:hover{
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,0.5),
+    0 0 25px rgba(255,255,255,0.5),
+    0 0 45px rgba(255,255,255,0.5);
+}
+*/
+.btnGlow{
+  border: 2px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    0 0 8px rgba(255,255,255,0.1),
+    0 0 18px rgba(255,255,255,0.1),
+    0 0 35px rgba(255,255,255,0.1);
+
+  transition: all 0.2s ease;
+}
+
+/* hover más brillante */
+
+.btnGlow:hover{
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 12px rgba(255,255,255,0.3),
+    0 0 30px rgba(255,255,255,0.3),
+    0 0 60px rgba(255,255,255,0.3);
+}
+
+
+.section-awards .taglink{
+  border: 2px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.01),
+    0 0 14px rgba(255,255,255,0.01),
+    0 0 28px rgba(255,255,255,0.01);
+
+  transition: all 0.2s ease;
+}
+
+/* hover animation */
+
+.section-awards .taglink:hover{
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,3),
+    0 0 25px rgba(255,255,255,0.3),
+    0 0 50px rgba(255,255,255,0.3);
+}
+
+
+
+
+.section-publications .taglink{
+  border: 2px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.01),
+    0 0 14px rgba(255,255,255,0.01),
+    0 0 28px rgba(255,255,255,0.01);
+
+  transition: all 0.2s ease;
+}
+
+/* hover animation */
+
+.section-publications .taglink:hover{
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,3),
+    0 0 25px rgba(255,255,255,0.3),
+    0 0 50px rgba(255,255,255,0.3);
+}
+
+
+.section-certs .taglink{
+  border: 2px solid rgba(255,255,255,0.9);
+
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.01),
+    0 0 14px rgba(255,255,255,0.01),
+    0 0 28px rgba(255,255,255,0.01);
+
+  transition: all 0.2s ease;
+}
+
+/* hover animation */
+
+.section-certs .taglink:hover{
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,3),
+    0 0 25px rgba(255,255,255,0.3),
+    0 0 50px rgba(255,255,255,0.3);
+}
+
 
 .statNum{
   font-size: 26px;
