@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+
+    <!-- SPA GitHub Pages redirect -->
+    <script>
+      (function () {
+        var l = window.location;
+        var repo = "/Portfolio"; // 👈 tu repo
+        var path = l.pathname;
+
+        // Si ya estás en la raíz del repo, no hagas nada
+        if (path === repo + "/" || path === repo) return;
+
+        // Redirige a /Portfolio/ manteniendo la ruta en query
+        var newUrl = l.origin + repo + "/?p=" + encodeURIComponent(path.replace(repo, "")) + "&q=" + encodeURIComponent(l.search || "") + "&h=" + encodeURIComponent(l.hash || "");
+        l.replace(newUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
