@@ -54,6 +54,11 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px; /* compensa el navbar sticky */
+}
+
 /* iPhone: evita zoom raro y saltos */
 html { -webkit-text-size-adjust: 100%; }
 
@@ -1336,5 +1341,40 @@ a:hover { text-decoration: underline; }
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+  }
+}
+
+/* ===========================
+   ✅ Mobile tap fix (iOS/Safari)
+   =========================== */
+@media (hover: none) and (pointer: coarse) {
+
+  /* 1) Asegura que el tap en links/botones se registre bien */
+  a, button, .btn, .tocItem {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 2) Fuerza que tus botones (Home / TOC) estén por ENCIMA de cualquier overlay */
+  .sectionNav,
+  .toc,
+  .tocButtons,
+  .homeMain,
+  .homeSectionCard {
+    position: relative;
+    z-index: 5;
+  }
+
+  /* 3) Cualquier “glow/overlay decorativo” NO debe capturar taps */
+  .heroGlow,
+  .heroVisualStack::before,
+  .heroVisualStack::after,
+  .heroAvatarNeon::before,
+  .heroAvatarNeon::after,
+  .homeHeroStack::before,
+  .homeHeroStack::after,
+  .homeHero2::before,
+  .homeHero2::after {
+    pointer-events: none !important;
   }
 }
