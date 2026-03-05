@@ -30,7 +30,7 @@ function useCountUp(target, durationMs = 900) {
 export default function Home() {
   const sectionIds = useMemo(
     () => [
-      { id: "top", label: "About" },          // 👈 cambia: About scrollea al TOP real
+      { id: "top", label: "About" },      
       { id: "education", label: "Education" },
       { id: "awards", label: "Awards" },
       { id: "publications", label: "Publications" },
@@ -154,7 +154,7 @@ export default function Home() {
 
             <p className="sub">
               Machine Learning Engineer with 2+ years of hands-on experience designing end-to-end AI systems across
-              Computer Vision, Gen AI, and Robotics. Combines a Master’s degree in Artificial Intelligence with a strong
+              Computer Vision, Generative AI, and Robotics. Combines a Master’s degree in Artificial Intelligence with a strong
               foundation in Mechatronics Engineering to build intelligent solutions.
             </p>
 
