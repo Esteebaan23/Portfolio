@@ -42,7 +42,7 @@ export default function Home() {
   const [active, setActive] = useState("top");
   const refs = useRef({});
 
-  const statYears = useCountUp(2);
+  const statYears = useCountUp(3);
   const statProjects = useCountUp(17);
   const statDomains = useCountUp(4);
 
@@ -153,7 +153,7 @@ export default function Home() {
             </div>
 
             <p className="sub">
-              Machine Learning Engineer with 2+ years of hands-on experience designing end-to-end AI systems across
+              Machine Learning Engineer with 3+ years of hands-on experience designing end-to-end AI systems across
               Computer Vision, Generative AI, and Robotics. Combines a Master’s degree in Artificial Intelligence with a strong
               foundation in Mechatronics Engineering to build intelligent solutions.
             </p>
